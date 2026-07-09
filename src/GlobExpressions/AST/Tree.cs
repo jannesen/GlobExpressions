@@ -7,9 +7,8 @@ internal sealed class Tree : GlobNode
 {
     public Segment[] Segments { get; }
 
-    public Tree(IEnumerable<Segment> segments)
-        : base(GlobNodeType.Tree)
+    public Tree(IEnumerable<Segment> segments): base(GlobNodeType.Tree)
     {
-            Segments = segments.ToArray();
-        }
+        Segments = segments.ToArray();
+    }
 }

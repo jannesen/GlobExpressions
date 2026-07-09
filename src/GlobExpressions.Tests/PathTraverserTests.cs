@@ -195,7 +195,7 @@ public class PathTraverserTests
     [Fact]
     public void TraverseDirectories()
     {
-            var results = new DirectoryInfo(SourceRoot).Traverse("**/*Tests/**/P*", true, false, true).ToList();
+            var results = new DirectoryInfo(SourceRoot).Traverse("**/*Tests/**/test", true, false, true).ToList();
 
             results.ForEach(file => _printer.WriteLine(file.FullName));
 
@@ -205,11 +205,11 @@ public class PathTraverserTests
     [Fact]
     public void TraverseFilesAndDirectories()
     {
-            var results = new DirectoryInfo(Path.Combine(SourceRoot, "test")).Traverse("**/*Tests/**/P*", true, true, true).ToList();
+            var results = new DirectoryInfo(Path.Combine(SourceRoot, "src")).Traverse("**/*Tests/t*", false, true, true).ToList();
 
             results.ForEach(file => _printer.WriteLine(file.FullName));
 
-            Assert.Equal(4, results.Count);
+            Assert.Equal(2, results.Count);
         }
 
     [Theory]

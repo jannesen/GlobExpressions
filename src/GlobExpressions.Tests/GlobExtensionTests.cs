@@ -65,13 +65,13 @@ public class GlobExtensionTests
     [Fact]
     public void CanMatchConfigFilesInMsDirectory()
     {
-            var globPattern = @"**/*.sln";
+            var globPattern = @"**/*.slnx";
 
             var root = new DirectoryInfo(SourceRoot);
             var result = root.GlobFiles(globPattern).ToList();
 
             Assert.NotNull(result);
-            Assert.True(result.Any(x => x.Name == "Glob.sln"), $"There should be some Glob.sln files in '{root.FullName}'");
+            Assert.True(result.Any(x => x.Name == "Glob.slnx"), $"There should be some Glob.sln files in '{root.FullName}'");
         }
 
     [Fact]
@@ -84,10 +84,8 @@ public class GlobExtensionTests
 
             Assert.Collection(
                 result,
-                file => Assert.Equal("Glob.Benchmarks.csproj", file.Name),
-                file => Assert.Equal("Glob.csproj", file.Name),
-                file => Assert.Equal("Glob.Tests.csproj", file.Name),
-                file => Assert.Equal("GlobApp.csproj", file.Name)
+                file => Assert.Equal("GlobExpressions.csproj", file.Name),
+                file => Assert.Equal("GlobExpressions.Tests.csproj", file.Name)
             );
         }
 
@@ -119,24 +117,24 @@ public class GlobExtensionTests
     [Fact]
     public void CanMatchFilesInDirectoriesWithTrailingSlash()
     {
-            var globPattern = @"test/**/*Gl*.Te*";
+            var globPattern = @"src/**/*Gl*.Te*";
             var root = new DirectoryInfo(SourceRoot + Path.DirectorySeparatorChar).FullName;
             var result = Glob.Files(root, globPattern).ToList();
 
             Assert.NotNull(result);
-            Assert.All(result, path => Assert.StartsWith("test", path));
+            Assert.All(result, path => Assert.StartsWith("src", path));
             Assert.True(result.Any(), $"There should be some directories that match glob: {globPattern} in '{root}'");
         }
 
     [Fact]
     public void CanMatchFilesInDirectoriesWithoutTrailingSlash()
     {
-            var globPattern = @"test/**/*Gl*.Te*";
+            var globPattern = @"src/**/*Gl*.Te*";
             var root = new DirectoryInfo(SourceRoot).FullName;
             var result = Glob.Files(root, globPattern).ToList();
 
             Assert.NotNull(result);
-            Assert.All(result, path => Assert.StartsWith("test", path));
+            Assert.All(result, path => Assert.StartsWith("src", path));
             Assert.True(result.Any(), $"There should be some directories that match glob: {globPattern} in '{root}'");
         }
 }
