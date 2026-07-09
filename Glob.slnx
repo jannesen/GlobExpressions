@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="src/GlobExpressions/GlobExpressions.csproj" />
-  <Project Path="src/GlobExpressions.Tests/GlobExpressions.Tests.csproj" />
-</Solution>
