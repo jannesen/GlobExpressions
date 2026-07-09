@@ -1,4 +1,13 @@
 <Solution>
   <Project Path="src/GlobExpressions/GlobExpressions.csproj" />
+  <Folder Name="/files/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="CHANGELOG.md" />
+    <File Path="CleanupSources.cmd" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="src/GlobExpressions.Tests/GlobExpressions.Tests.csproj" />
 </Solution>
