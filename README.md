@@ -1,6 +1,6 @@
 # Glob
 
-It is a fork of https://github.com/kthompson/glob. It is stripped down version to the core GlobExpression and upgrade to net10. 
+It is a fork of https://github.com/kthompson/glob. It is stripped down version to the core GlobExpression and upgrade to net10.
 
 A C# Glob library for .NET.
 
